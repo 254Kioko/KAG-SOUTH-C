@@ -462,10 +462,12 @@ text-align: left;}
     }
   }
 
-.header-video {
+  .header-video {
     position: relative;
     width: 100%;
     height: 100vh;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio for responsive scaling */
+
     overflow: hidden;
   }
   
@@ -476,6 +478,17 @@ text-align: left;}
     width: 100%;
     height: 100%;
   }
+  
+ /* For screens smaller than 768px (typical mobile devices) */
+@media (max-width: 768px) {
+    .header-video {
+      padding-bottom: 50%; /* Adjust the percentage to make the frame shorter */
+    }
+    .header-video iframe {
+        padding-bottom: 50%; /* Adjust the percentage to make the frame shorter */
+      }
+  }
+  
   
 
 
