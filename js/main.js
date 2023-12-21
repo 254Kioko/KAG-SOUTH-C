@@ -171,7 +171,8 @@
 	  }
 	  
 
-	// Load the YouTube IFrame Player API asynchronously
+	
+// Load the YouTube IFrame Player API asynchronously
 var tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/live/GaOp1pt3aOo?si=0CVpPn3IMDqLz-ki';
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -201,3 +202,4 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
   event.target.mute(); // Mute the video on player ready
   event.target.playVideo(); // Start playing the video
+}
