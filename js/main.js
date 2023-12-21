@@ -171,4 +171,33 @@
 	  }
 	  
 
-	
+	// Load the YouTube IFrame Player API asynchronously
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/live/GaOp1pt3aOo?si=0CVpPn3IMDqLz-ki';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '100%',
+    width: '100%',
+    videoId: 'VIDEO_ID_HERE', // Replace with your YouTube video ID
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      loop: 1,
+      playlist: 'VIDEO_ID_HERE', // Same as video ID for loop
+      modestbranding: 1,
+      showinfo: 0,
+      mute: 1  // Mute the video
+    },
+    events: {
+      onReady: onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  event.target.mute(); // Mute the video on player ready
+  event.target.playVideo(); // Start playing the video
