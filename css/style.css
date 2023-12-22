@@ -482,6 +482,8 @@ text-align: left;}
     .header-video {
       padding-bottom: 50%; /* Adjust the percentage to make the frame shorter */
       height: 120%;
+	          height: 50vh;
+
 
     }
     .header-video iframe {
