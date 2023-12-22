@@ -481,12 +481,15 @@ text-align: left;}
 @media (max-width: 768px) {
     .header-video {
       padding-bottom: 50%; /* Adjust the percentage to make the frame shorter */
+      height: 100%;
+
     }
     .header-video iframe {
-        padding-bottom: 50%; /* Adjust the percentage to make the frame shorter */
+        padding-bottom: 0%; /* Adjust the percentage to make the frame shorter */
+        height: 100%;
+
       }
   }
-  
 
   
  
