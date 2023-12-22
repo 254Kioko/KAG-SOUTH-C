@@ -183,10 +183,10 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '100%',
     width: '100%',
-    videoId: 'VIDEO_ID_HERE', // Replace with your YouTube video ID
+    videoId: 'player', // Replace with your YouTube video ID
     playerVars: {
       autoplay: 1,
-      controls: 0,
+      controls: 1,
       loop: 1,
       playlist: 'VIDEO_ID_HERE', // Same as video ID for loop
       modestbranding: 1,
@@ -203,3 +203,6 @@ function onPlayerReady(event) {
   event.target.mute(); // Mute the video on player ready
   event.target.playVideo(); // Start playing the video
 }
+
+
+
