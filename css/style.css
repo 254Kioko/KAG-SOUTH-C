@@ -387,7 +387,31 @@ text-align: left;}
     }
   }
 
-
+  @media screen and (max-width: 768px) {
+    /* Adjust font sizes */
+    .entry-content h2 {
+      font-size: 1.5em;
+    }
+  
+    .entry-content h3 {
+      font-size: 1.2em;
+    }
+  
+    .entry-content p {
+      font-size: 1em;
+    }
+  
+    .entry-content ol,
+    .entry-content ul {
+      font-size: 0.9em;
+    }
+  
+    /* Adjust margins or paddings if needed */
+    .entry-content {
+      padding: 10px;
+      margin: 0;
+    }
+  }
 
   
 /* ---------------------------------------------------------------------------- */
@@ -604,3 +628,8 @@ a.btn:focus{outline: 0;}
 .btn-skin:hover, .btn-skin:focus {color: #fff;background-color: #173E43;}
 .btn-toTop{height: 42px;width: 42px;padding: 7px 0 0;border: 2px solid #42AB9E;margin: 0;color: #42AB9E;}
 .btn-toTop:hover{background: #42AB9E;color: #fff;}
+.note ol {
+    text-align: left; /* Align the list items to the left */
+    padding-left: 7px; /* Add some padding for better readability */
+  }
+  
