@@ -339,7 +339,13 @@ text-align: left;}
   }
   
 
-  
+ @media(max-width:767px){
+    blockquote {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    padding: 3px; /* Reduce padding */
+    border-left-width: 3px; /* Make border thinner */
+    }
+  } 
  
   .photo-container {
     font-size: 1.5em;
