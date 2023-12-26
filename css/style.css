@@ -320,7 +320,14 @@ text-align: left;}
     width: 100%;
     height: 100%;
   }
+  input[type="radio"] {
+  margin-right: 5px;
+}
+
+label {
+  cursor: pointer;
   
+}
  /* For screens smaller than 768px (typical mobile devices) */
 @media (max-width: 768px) {
     .header-video {
