@@ -320,14 +320,7 @@ text-align: left;}
     width: 100%;
     height: 100%;
   }
-  input[type="radio"] {
-  margin-right: 5px;
-}
-
-label {
-  cursor: pointer;
   
-}
  /* For screens smaller than 768px (typical mobile devices) */
 @media (max-width: 768px) {
     .header-video {
@@ -552,12 +545,27 @@ article .entry-content ol {float: left;text-align: justify;margin: 10px 50px;lis
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  
 }
+.tube h6{
+  text-align: center;
+}
+
 .icon {
   font-size: 24px;
-  margin: 0 10px;
+  margin: 0 30px;
   color: #42AB9E; /* Icon color */
+  align-items: center;
 }
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+label {
+  cursor: pointer;
+  
+}
+
 /* ---------------------------------------------------------------------------- */
 /* ------------------------------------Footer---------------------------------- */
 /* ---------------------------------------------------------------------------- */
