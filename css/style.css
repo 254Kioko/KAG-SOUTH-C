@@ -583,10 +583,35 @@ label {
 .ministries span{
   color:#42AB9E;
 }
+.mapp {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+  padding-top: 5%; /* Adjust this percentage to change the aspect ratio */
 
+  position: relative;
+  height: 0;
+}
 
+.mapp iframe {
+  left: 0;
+  top: 0;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+}
+  
+@media (max-width: 768px){
+ .mapp {
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+  padding-top: 15%; /* Adjust this percentage to change the aspect ratio */
 
+}
 
+.mapp iframe{
+  height: 100%;
+width: 100;
+}
+}
 
 
 /* ---------------------------------------------------------------------------- */
