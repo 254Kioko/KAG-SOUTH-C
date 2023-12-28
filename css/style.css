@@ -422,6 +422,30 @@ text-align: left;}
   .ministries span{
   color:#42AB9E;
 }
+.mapp {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+  position: relative;
+  height: 0;
+}
+
+.mapp iframe {
+  left: 0;
+  top: 0;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+}
+  
+@media (max-width: 768px){
+ .mapp {
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+}
+.mapp iframe{
+  height: 100%;
+
+}
+}
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------------Box 3---------------------------------- */
 /* ---------------------------------------------------------------------------- */
