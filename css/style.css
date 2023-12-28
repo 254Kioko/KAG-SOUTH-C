@@ -419,33 +419,7 @@ text-align: left;}
     }
   }
 
-  .ministries span{
-  color:#42AB9E;
-}
-.mapp {
-  overflow: hidden;
-  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
-  position: relative;
-  height: 0;
-}
-
-.mapp iframe {
-  left: 0;
-  top: 0;
-  height: 70%;
-  width: 100%;
-  position: absolute;
-}
   
-@media (max-width: 768px){
- .mapp {
-  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
-}
-.mapp iframe{
-  height: 100%;
-
-}
-}
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------------Box 3---------------------------------- */
 /* ---------------------------------------------------------------------------- */
@@ -579,7 +553,7 @@ article .entry-content ol {float: left;text-align: justify;margin: 10px 50px;lis
 
 .icon {
   font-size: 24px;
-  margin: 0 30px;
+  margin: 0 35px;
   color: #42AB9E; /* Icon color */
   align-items: center;
 }
@@ -591,6 +565,54 @@ label {
   cursor: pointer;
   
 }
+.social-icons a:nth-child(2) i.fa-youtube {
+  color: red;
+}
+.social-icons a:nth-child(1) i.fa-facebook {
+  color: #1c7791;
+  
+}
+.social-icons a:nth-child(3) i.fa-phone {
+  color: green;
+  margin: 0 2px;
+
+}
+.bottom-footer .list-inline.footer-link.link li:nth-child(3) a i.fa-youtube {
+  color: red; /* Change the color to red */
+}
+.ministries span{
+  color:#42AB9E;
+}
+.mapp {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+  padding-top: 5%; /* Adjust this percentage to change the aspect ratio */
+
+  position: relative;
+  height: 0;
+}
+
+.mapp iframe {
+  left: 0;
+  top: 0;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+}
+  
+@media (max-width: 768px){
+ .mapp {
+  padding-bottom: 56.25%; /* Aspect ratio (height:width ratio) for responsive map */
+  padding-top: 15%; /* Adjust this percentage to change the aspect ratio */
+
+}
+
+.mapp iframe{
+  height: 100%;
+width: 100;
+}
+}
+
 
 /* ---------------------------------------------------------------------------- */
 /* ------------------------------------Footer---------------------------------- */
