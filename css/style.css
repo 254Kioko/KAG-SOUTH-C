@@ -619,7 +619,7 @@ width: 100;
 /* ---------------------------------------------------------------------------- */
 footer{color: #bbb;background-color:#000;position: fixed;top: auto;bottom: 0;left: 0;width: 100%;display:block;}
 footer a{color: #bbb;font-weight: bold;text-decoration: underline}
-footer a:hover {color: #e9e9e9;}
+footer a:hover {color: #42AB9E;}
 
 footer .wrap-footer {padding: 60px 0;}
 
