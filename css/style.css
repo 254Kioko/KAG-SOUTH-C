@@ -417,9 +417,12 @@ text-align: left;}
       padding: 10px;
       margin: 0;
     }
+   
   }
 
+
   
+
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------------Box 3---------------------------------- */
 /* ---------------------------------------------------------------------------- */
@@ -607,11 +610,14 @@ label {
 
 }
 
+
 .mapp iframe{
   height: 100%;
 width: 100;
 }
 }
+/* For mobile devices */
+
 
 
 /* ---------------------------------------------------------------------------- */
@@ -621,7 +627,7 @@ footer{color: #bbb;background-color:#000;position: fixed;top: auto;bottom: 0;lef
 footer a{color: #bbb;font-weight: bold;text-decoration: underline}
 footer a:hover {color: #42AB9E;}
 
-footer .wrap-footer {padding: 60px 0;}
+footer .wrap-footer {padding: 15px 0;}
 
 footer .footer-title {margin-bottom: 20px;position: relative;text-transform: uppercase;font-size: 16px;color: #fff;}
 
@@ -639,7 +645,7 @@ footer .footer-contact-form input.form-control:focus,
 footer .footer-contact-form textarea:focus{box-shadow: none;border: 1px solid #e9e9e9;}
 footer .footer-contact-form .btn-skin{}
 
-footer .footer-contact-info{padding: 30px 0 0 10px;}
+footer .footer-contact-info{padding: 10px 0 0 10px;}
 footer .contact-info-item{margin-top: 15px}
 footer .contact-info-item h3{font-size: 16px;text-transform: uppercase;color: #e9e9e9;margin: 3px 0 12px;}
 footer .contact-info-item p{}
@@ -650,11 +656,9 @@ footer .contact-info-icon i.fa{font-size: 23px;color: #e9e9e9;}
 }
 
 /* CSS to add blue background behind the Facebook icon */
+ 
 
-
-
-
-footer .bottom-footer{padding: 40px 0 10px;text-align:center;border-top: 1px solid rgba(255, 255, 255, .2);}
+footer .bottom-footer{padding: 20px 0 10px;text-align:center;border-top: 1px solid rgba(255, 255, 255, .2);}
 footer .copyright{padding: 15px 0;font-size: 16px;}
 @media(max-width:767px) {
     footer{position: relative;}
@@ -706,8 +710,17 @@ a.btn:focus{outline: 0;}
 .btn-skin:hover, .btn-skin:focus {color: #fff;background-color: #173E43;}
 .btn-toTop{height: 42px;width: 42px;padding: 7px 0 0;border: 2px solid #42AB9E;margin: 0;color: #42AB9E;}
 .btn-toTop:hover{background: #42AB9E;color: #fff;}
-.note ol {
+.note{
+  word-spacing: 2px;
+}
+.note ol{
     text-align: left; /* Align the list items to the left */
     padding-left: 7px; /* Add some padding for better readability */
   }
-  
+  @media (max-width: 768px){
+    .note ol li{
+      padding-left: 0.9px;
+      margin: left -50px;%
+    }
+  }
+
