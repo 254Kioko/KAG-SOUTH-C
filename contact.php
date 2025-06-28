@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 1. Define your receiving email address
-    $receiving_email_address = 'kagsouthc@gmail.com'; // This is where the form submission will be sent
+    $receiving_email_address = 'kiokoeddie254@gmail.com'; // This is where the form submission will be sent
 
     // 2. Get the submitted email address from the form
     // Use filter_var for basic sanitization to remove illegal characters from the email address
