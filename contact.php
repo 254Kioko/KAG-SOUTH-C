@@ -1,57 +1,46 @@
 <?php
-if($_POST)
-{
-    $to_email       = "imma.da.bad	@gmail.com"; //Recipient email, Replace with own email here
-    $from_email     = 'noreply@your_domain.com'; //from mail, it is mandatory with some hosts and without it mail might endup in spam.
-    
-    //check if its an ajax request, exit if not
-    if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-        
-        $output = json_encode(array( //create JSON data
-            'type'=>'error', 
-            'text' => 'Sorry Request must be Ajax POST'
-        ));
-        die($output); //exit script outputting json data
-    } 
-    
-    //Sanitize input data using PHP filter_var().
-    $user_name      = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
-    $user_email     = filter_var($_POST["user_email"], FILTER_SANITIZE_EMAIL);
-	$subject        = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
-    $message        = filter_var($_POST["msg"], FILTER_SANITIZE_STRING);
-    
-    //additional php validation
-    if(strlen($user_name)<4){ // If length is less than 4 it will output JSON error.
-        $output = json_encode(array('type'=>'error', 'text' => 'Name is too short or empty!'));
-        die($output);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 1. Define your receiving email address
+    $receiving_email_address = 'kagsouthc@gmail.com'; // This is where the form submission will be sent
+
+    // 2. Get the submitted email address from the form
+    // Use filter_var for basic sanitization to remove illegal characters from the email address
+    $submitted_email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
+    // 3. Validate the email address
+    // Check if the email is empty or not a valid email format
+    if (empty($submitted_email) || !filter_var($submitted_email, FILTER_VALIDATE_EMAIL)) {
+        echo "Please enter a valid email address to subscribe.";
+        exit; // Stop script execution if validation fails
     }
-    if(!filter_var($user_email, FILTER_VALIDATE_EMAIL)){ //email validation
-        $output = json_encode(array('type'=>'error', 'text' => 'Please enter a valid email!'));
-        die($output);
+
+    // 4. Prepare email details
+    $subject = "New Email Signup from Your Website"; // Subject line of the email you will receive
+    $message = "You have a new email subscriber!\n\n";
+    $message .= "Subscriber Email: " . $submitted_email . "\n"; // Body of the email
+
+    // Set headers for the email
+    // IMPORTANT: The 'From' address should ideally be from your website's domain
+    // Using a @gmail.com address here might cause deliverability issues (spam filters)
+    // Replace 'noreply@yourwebsite.com' with an actual email from your domain if possible.
+    $headers = "From: noreply@yourwebsite.com\r\n"; // Example: noreply@yourchurchwebsite.com
+    $headers .= "Reply-To: " . $submitted_email . "\r\n"; // Allows you to reply directly to the subscriber
+    $headers .= "X-Mailer: PHP/" . phpversion(); // Adds information about the PHP version
+
+    // 5. Send the email
+    // The mail() function attempts to send the email. It returns true on success, false on failure.
+    if (mail($receiving_email_address, $subject, $message, $headers)) {
+        // Success message if the email was sent
+        echo "Thank you for signing up! Your email has been received.";
+        // Optional: Redirect the user to a "thank you" page for a better user experience
+        // header("Location: thank_you.html");
+        // exit; // Ensure no further code is executed after redirection
+    } else {
+        // Error message if the email failed to send
+        echo "Sorry, there was an error sending your email. Please try again later.";
     }
-    if(strlen($message)<3){ //check emtpy message
-        $output = json_encode(array('type'=>'error', 'text' => 'Too short message! Please enter something.'));
-        die($output);
-    }
-    
-    //email body
-    $message_body = $message."\r\n\r\n-".$user_name."\r\nEmail : ".$user_email ;
-    
-    //proceed with PHP email.
-    $headers = 'From: '. $from_email .'' . "\r\n" .
-    'Reply-To: '.$user_email.'' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-    
-    $send_mail = mail($to_email, $subject, $message_body, $headers);
-    
-    if(!$send_mail)
-    {
-        //If mail couldn't be sent output error. Check your PHP email configuration (if it ever happens)
-        $output = json_encode(array('type'=>'error', 'text' => 'Could not send mail! Please check your PHP mail configuration.'));
-        die($output);
-    }else{
-        $output = json_encode(array('type'=>'message', 'text' => 'Hi '.$user_name .' Thank you for your email'));
-        die($output);
-    }
+} else {
+    // This block runs if the page is accessed directly, not via form submission
+    echo "This page cannot be accessed directly. Please use the form to submit your email.";
 }
 ?>
