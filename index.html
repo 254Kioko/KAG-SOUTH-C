@@ -504,7 +504,63 @@ Jesus didn't just teach about service; He lived it. He healed the sick, fed the 
 		</div>
 	</footer>
 	
-	<div id="page-top"><a href="#page-top" class="btn btn-toTop"><i class="fa fa-angle-double-up"></i></a></div>
+<!-- Back to Top Button -->
+<div id="back-to-top">
+  <a href="#page-top" class="btn btn-toTop">
+    <i class="fa fa-angle-double-up"></i>
+  </a>
+</div>
+
+<!-- JS -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.localScroll.min.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/SmoothScroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Back to Top Script -->
+<script>
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+      $('#back-to-top').fadeIn();
+    } else {
+      $('#back-to-top').fadeOut();
+    }
+  });
+
+  $('#back-to-top a').click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 600);
+  });
+</script>
+
+<!-- CSS -->
+<style>
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 9999;
+  }
+
+  #back-to-top a {
+    background: #333;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+
+  #back-to-top a:hover {
+    background: #555;
+    text-decoration: none;
+  }
+</style>
 	
 	<!-- JS -->
 	<!-- ========== Scripts ========== -->
@@ -521,5 +577,6 @@ Jesus didn't just teach about service; He lived it. He healed the sick, fed the 
 </div>	
 </body>
 </html>
+
 
 
