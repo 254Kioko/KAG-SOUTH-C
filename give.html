@@ -103,21 +103,25 @@
 						
 						  <div class="footer-contact-form">
 							<h2 class="footer-title">Pledge Towards Missions</h2>
-							<form name="pledge" netlify>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control input-lg" name="name" id="name" placeholder="Enter name" />
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control input-lg" name="amount" id="amount" placeholder="Amount" required="required" />
-										</div>
-										
-										
-								
-									
-								<button type="submit" class="btn btn-skin" name="submit" id="submit">Submit</button>
-							</form>
+						<form name="pledge" netlify>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Enter name" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control input-lg" name="amount" id="amount" placeholder="Amount" required="required" />
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-skin" name="submit" id="submit">Submit</button>
+</form>
+
+<!-- ✅ Success message for pledge form -->
+<div id="pledge-success" class="alert alert-success" style="display:none; margin-top:15px;">
+  ✅ Thank you for your pledge!.
+</div>
+
 						</div>		
 								
 								
@@ -288,7 +292,24 @@ document.querySelector('form[name="updates"]').addEventListener("submit", functi
   .catch(() => alert("Oops! Something went wrong. Please try again."));
 });
 </script>
-							
+	<script>
+// Pledge Form
+document.querySelector('form[name="pledge"]').addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("pledge-success").style.display = "block";
+    form.reset();
+  })
+  .catch(() => alert("Oops! Something went wrong. Please try again."));
+});
+</script>
+						
 <script>
 	$(document).ready(function() {
 	  $('#paymentForm').submit(function(e) {
@@ -314,4 +335,5 @@ document.querySelector('form[name="updates"]').addEventListener("submit", functi
 	</script>
 </body>
 </html>
+
 
