@@ -53,30 +53,8 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.html">Home</a></li>
 							<li ><a href="about.html">About Us</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Ministries and Departments  <i class="fa fa-chevron-down"></i></a>
-								<div class="dropdown-menu" style="margin-left: -203.625px;">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li><a href="about.html">MF</a></li>
-											<li><a href="about.html">WWK</a></li>
-											<li><a href="about.html">Youth</a></li>
-											<li><a href="about.html">Teens</a></li>
-											<li><a href="about.html">Children Ministry</a></li>
-										</ul>
-										<ul class="list-unstyled">
-											<li><a href="about.html">Mercy Ministry</a></li>
-											<li><a href="about.html">Intercessors</a></li>
-											<li><a href="about.html">Accountability groups</a></li>
-											<li><a href="about.html">Ushers</a></li>
-											<li><a href="about.html">Choir</a></li>
-										</ul>
-										<ul class="list-unstyled">
-											<li><a href="about.html">Praise and Worship</a></li>
-											<li><a href="about.html">Media Team</a></li>
-										</ul>
-									</div>
-								</div>
-							</li>
+													<li ><a href="about.html">Ministries and Departments</a></li>
+
 							<li class="active"><a href="give.html">Give</a></li>
 
 							<li><a href="contact.html">Prayer Request</a></li>
@@ -165,18 +143,20 @@
 						<div class="footer-contact-form">
 							<h2 class="footer-title">Sign up for updates</h2>
 								<form name="updates" netlify>
-								<div class="row">
-									<div class="col-md-6">
-										
-										<div class="form-group">
-											<input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
-										</div>
-										
-								</div>
-								</div>
-								
-								<button type="submit" class="btn btn-skin" name="submit" value=""submit id="submit">Submit</button>
-							</form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-skin" name="submit" id="submit">Submit</button>
+</form>
+<!-- ✅ Success message for updates form -->
+<div id="updates-success" class="alert alert-success" style="display:none; margin-top:15px;">
+  ✅ Thank you for subscribing! You’ll now receive updates from KAG South C.
+</div>
+
 						</div>
 					</div>
 					<div class="col-md-5">
@@ -275,6 +255,40 @@
 	<script src="js/main.js"></script>
 
 </div>	
+	<script>
+// Prayer Request Form
+document.querySelector('form[name="request"]').addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("success-alert").style.display = "block";
+    form.reset();
+  })
+  .catch(() => alert("Oops! Something went wrong. Please try again."));
+});
+
+// Updates Form
+document.querySelector('form[name="updates"]').addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("updates-success").style.display = "block";
+    form.reset();
+  })
+  .catch(() => alert("Oops! Something went wrong. Please try again."));
+});
+</script>
+							
 <script>
 	$(document).ready(function() {
 	  $('#paymentForm').submit(function(e) {
@@ -300,3 +314,4 @@
 	</script>
 </body>
 </html>
+
