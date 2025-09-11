@@ -389,19 +389,20 @@ Jesus didn't just teach about service; He lived it. He healed the sick, fed the 
 					<div class="col-md-7">
 						<div class="footer-contact-form">
 							<h2 class="footer-title">Sign up for updates</h2>
-								<form name="updates" netlify>
-								<div class="row">
-									<div class="col-md-6">
-										
-										<div class="form-group">
-											<input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
-										</div>
-										
-								</div>
-								</div>
-								
-								<button type="submit" class="btn btn-skin" name="submit" value=""submit id="submit">Submit</button>
-							</form>
+															<form name="updates" netlify>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-skin" name="submit" id="submit">Submit</button>
+</form>
+<!-- ✅ Success message for updates form -->
+<div id="updates-success" class="alert alert-success" style="display:none; margin-top:15px;">
+  ✅ Thank you for subscribing! You’ll now receive updates from KAG South C.
+</div>
 						</div>
 					</div>
 					<div class="col-md-5">
@@ -542,7 +543,40 @@ Jesus didn't just teach about service; He lived it. He healed the sick, fed the 
     text-decoration: none;
   }
 </style>
-	
+	<script>
+// Prayer Request Form
+document.querySelector('form[name="request"]').addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("success-alert").style.display = "block";
+    form.reset();
+  })
+  .catch(() => alert("Oops! Something went wrong. Please try again."));
+});
+
+// Updates Form
+document.querySelector('form[name="updates"]').addEventListener("submit", function(e) {
+  e.preventDefault();
+  var form = this;
+
+  fetch("/", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("updates-success").style.display = "block";
+    form.reset();
+  })
+  .catch(() => alert("Oops! Something went wrong. Please try again."));
+});
+</script>
+
 	<!-- JS -->
 	<!-- ========== Scripts ========== -->
 	<script src="js/jquery-3.1.1.min.js"></script>
@@ -558,6 +592,7 @@ Jesus didn't just teach about service; He lived it. He healed the sick, fed the 
 </div>	
 </body>
 </html>
+
 
 
 
